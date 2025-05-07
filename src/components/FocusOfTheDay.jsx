@@ -20,7 +20,7 @@ export default function FocusOfTheDay() {
     setFocus("");
   };
   return (
-    <div className="col-span-1 md:col-span-2 flex flex-col justify-center items-center bg-blue-500 text-white w-full rounded-2xl p-3">
+    <div className="col-span-1 md:col-span-2 flex flex-col justify-center items-center font-bold bg-white/10 backdrop-blur-xl text-gray-950 w-full rounded-2xl p-3">
       <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl text-center">
         Focus du jour 🎯
       </h1>
@@ -31,7 +31,7 @@ export default function FocusOfTheDay() {
             value={focus}
             onChange={(e) => setFocus(e.target.value)}
             placeholder="Quel est ton objectif aujourd'hui ?"
-            className="border rounded-lg h-10 p-2 placeholder-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl"
+            className="border rounded-lg h-10 p-2 placeholder-emerald-100 focus:outline-none focus:ring-2 focus:border-none focus:ring-white w-full max-w-xl"
           />
           <button
             type="submit"

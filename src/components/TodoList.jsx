@@ -50,7 +50,7 @@ export default function TodoList() {
   };
 
   return (
-    <div className="col-span-1 md:col-span-1 bg-gray-300/10 backdrop-blur-xl text-gray-950 font-bold p-3 rounded-lg">
+    <div className="col-span-1 md:col-span-1 bg-black/10 backdrop-blur-xl text-gray-200 font-bold p-3 rounded-lg">
       <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl text-center">
         Todo List 📓
       </h2>

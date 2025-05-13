@@ -20,7 +20,7 @@ export default function FocusOfTheDay() {
     setFocus("");
   };
   return (
-    <div className="col-span-1 md:col-span-2 flex flex-col justify-center items-center font-bold bg-white/10 backdrop-blur-xl text-gray-950 w-full rounded-2xl p-3">
+    <div className="col-span-1 md:col-span-2 border-5 border-gray-200 flex flex-col justify-center items-center font-bold bg-black/10 backdrop-blur-xl text-gray-200 w-full rounded-2xl p-3">
       <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl text-center">
         Focus du jour 🎯
       </h1>

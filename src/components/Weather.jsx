@@ -19,8 +19,6 @@ export default function Weather() {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        console.log("Position OK", position); 
-
         const { latitude, longitude } = position.coords;
         const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
 

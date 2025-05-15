@@ -1,6 +1,7 @@
 import FocusOfTheDay from "@/components/FocusOfTheDay";
 import TodoList from "@/components/TodoList";
 import Weather from "@/components/Weather";
+import QuotesOfTheDay from "@/components/QuotesOfTheDay";
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
       </div>
       {/* Citation du jour  */}
       <div className="col-span-1 md:col-span-2  bg-black/10 backdrop-blur-xl text-black">
-        <h1>Citation du jour</h1>
+        <QuotesOfTheDay />
       </div>
     </div>
   );

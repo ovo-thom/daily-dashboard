@@ -70,6 +70,7 @@ export default function Weather() {
   const description = weather.weather[0].description;
 
   return (
+    <div className="col-span-1 md:col-span-2 bg-black/10 backdrop-blur-xl rounded-3xl text-gray-200 flex flex-col justify-center items-center">
     <div className="flex flex-col justify-center items-center">
       <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold">
         {weather.name}
@@ -81,6 +82,7 @@ export default function Weather() {
       <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl">
         {description}
       </p>
+    </div>
     </div>
   );
 }

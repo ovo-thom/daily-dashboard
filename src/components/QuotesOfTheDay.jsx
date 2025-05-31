@@ -1,37 +1,16 @@
-"use client";
-
-const citations = [
-  {
-    text: "Le succès n'est pas final, l'échec n'est pas fatal : c'est le courage de continuer qui compte.",
-    author: "Winston Churchill",
-  },
-  {
-    text: "La vie, c’est comme une bicyclette, il faut avancer pour ne pas perdre l’équilibre.",
-    author: "Albert Einstein",
-  },
-  {
-    text: "Fais de ta vie un rêve, et d’un rêve, une réalité.",
-    author: "Antoine de Saint-Exupéry",
-  },
-  { text: "Il n’y a pas de réussite sans échec.", author: "Mickey Rooney" },
-  {
-    text: "Choisis un travail que tu aimes, et tu n’auras pas à travailler un seul jour de ta vie.",
-    author: "Confucius",
-  },
-];
+import getRandomQuote from "@/lib/getRandomQuote";
 
 export default function QuotesOfTheDay() {
-  const randomQuote = Math.floor(Math.random() * citations.length);
-  const quote = citations[randomQuote];
-  console.log("citation", quote);
-
+  const quote = getRandomQuote();
   return (
+    <div className="col-span-1 md:col-span-3 md:col-start-2 bg-black/10 backdrop-blur-xl text-black rounded-2xl">
     <div className="flex flex-col items-center justify-center h-full">
-      <div className="flex justify-evenly">
-        <h3 className="mr-1">Citation du jour :</h3>
-        <p>{quote.text}</p>
+      <div className="flex  items-baseline">
+        <h3 className="mr-1 text-gray-50 text-lg font-semibold">Citation du jour :</h3>
+        <p className="text-gray-200">{quote.text}</p>
       </div>
-      <p>{quote.author}</p>
+      <p className="text-green-300 italic ">{quote.author}</p>
+    </div>
     </div>
   );
 }

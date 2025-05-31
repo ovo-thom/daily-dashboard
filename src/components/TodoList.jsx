@@ -50,7 +50,7 @@ export default function TodoList() {
   };
 
   return (
-    <div className="col-span-1 md:col-span-1 bg-black/10 backdrop-blur-xl text-gray-200 font-bold p-3 rounded-lg">
+    <div className="col-span-1 md:col-span-3 bg-black/10 backdrop-blur-xl text-gray-200 font-bold p-3 rounded-lg">
       <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl text-center">
         Todo List 📓
       </h2>
@@ -64,18 +64,18 @@ export default function TodoList() {
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
             placeholder="Ajouter une tâche"
-            className="border rounded-lg h-10 p-2 placeholder-white focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl"
+            className="border rounded-lg h-10 p-2 placeholder-gray-200 font-light text-sm focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl"
           />
           <button className="border rounded-lg px-2 ml-4 cursor-pointer">
             Ajouter
           </button>
         </div>
       </form>
-      <ul className="w-1/2 mx-auto">
+      <ul className="w-[65%] mx-auto">
         {tasks.map((task) => (
           <li
             key={task.id}
-            className="flex items-baseline cursor-pointer border-b py-2"
+            className="flex items-baseline text-sm cursor-pointer border-b border-b-green-300 py-2"
           >
             {task.name}
             <span className="ml-auto flex items-center space-x-2">
@@ -84,7 +84,7 @@ export default function TodoList() {
               </span>
               <FaRegTrashCan
                 onClick={() => handleDelete(task.id)}
-                className="text-black cursor-pointer"
+                className="text-black cursor-pointer text-base"
               />
             </span>
           </li>

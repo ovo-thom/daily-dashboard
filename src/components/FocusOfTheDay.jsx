@@ -20,7 +20,7 @@ export default function FocusOfTheDay() {
     setFocus("");
   };
   return (
-    <div className="col-span-1 md:col-span-2 border-5 border-cyan-900 flex flex-col justify-center items-center font-bold bg-black/15 backdrop-blur-xl text-gray-200 w-full rounded-2xl p-3">
+    <div className="col-span-1 md:col-span-3 flex flex-col justify-center items-center font-bold bg-black/15 backdrop-blur-xl text-gray-200 w-full rounded-3xl p-3">
       <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl text-center">
         Focus du jour 🎯
       </h1>
@@ -31,7 +31,7 @@ export default function FocusOfTheDay() {
             value={focus}
             onChange={(e) => setFocus(e.target.value)}
             placeholder="Quel est ton objectif aujourd'hui ?"
-            className="border rounded-lg h-10 p-2 placeholder-emerald-100 focus:outline-none focus:ring-2 focus:border-none focus:ring-white w-full max-w-xl"
+            className="border rounded-lg h-10 p-2 placeholder-gray-200 font-light text-sm focus:outline-none focus:ring-2 focus:border-none focus:ring-white w-full max-w-xl"
           />
           <button
             type="submit"
@@ -42,17 +42,18 @@ export default function FocusOfTheDay() {
         </div>
       </form>
       {submittedFocus && (
-        <div className="flex items-baseline justify-center">
-          <p className="text-center text-base sm:text-sm md:text-lg lg:text-xl xl:text-2xl">
-            <strong>Ton focus du jour : {submittedFocus} 🎯</strong>
-          </p>
+        <div className="w-full flex items-baseline justify-center">
+          <div className=" text-center text-base sm:text-sm md:text-lg lg:text-xl xl:text-2xl flex items-baseline justify-between">
+            <p className="font-light text-xl text-gray-50">Ton focus du jour :</p>
+            <p className="font-light text-base text-green-200 ml-2">{submittedFocus}</p> 🎯
+          </div>
           <div className=" flex items-center justify-center ml-2">
             <button
               onClick={() => {
                 setSubmittedFocus("");
                 localStorage.removeItem("focusOfTheDay");
               }}
-              className="h-7 w-7 rounded-lg border text-red-500 cursor-pointer"
+              className="h-7 w-7 hover:border-red-500 hover:text-red-400 duration-300 rounded-lg border text-gray-200 cursor-pointer"
             >
               X
             </button>

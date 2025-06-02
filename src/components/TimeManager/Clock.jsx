@@ -1,7 +1,17 @@
 "use client";
+import { useState, useEffect } from "react";
 
 export default function Clock() {
-  const date = new Date();
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const date = time;
   const day = date.toLocaleDateString("fr-FR", {
     weekday: "long",
     day: "numeric",
@@ -15,7 +25,9 @@ export default function Clock() {
   return (
     <div className="flex justify-between items-baseline">
       <p>{dayString}</p>
-      <p>{hours}:{minutes}</p>
+      <p>
+        {hours}:{minutes}
+      </p>
     </div>
   );
 }

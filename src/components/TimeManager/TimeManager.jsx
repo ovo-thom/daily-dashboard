@@ -23,17 +23,17 @@ export default function TimeManager() {
       </div>
 
       <div className="flex justify-evenly items-center text-2xl">
-        <button
+        {/* <button
           onClick={() => setActiveTab("clock")}
           className={`p-2 rounded-full ${
             activeTab === "clock" ? "bg-white text-black" : ""
           }`}
         >
           <FaClock />
-        </button>
+        </button> */}
         <button
           onClick={() => setActiveTab("alarm")}
-          className={`p-2 rounded-full ${
+          className={`p-2 rounded-full cursor-pointer ${
             activeTab === "alarm" ? "bg-white text-black" : ""
           }`}
         >
@@ -41,7 +41,7 @@ export default function TimeManager() {
         </button>
         <button
           onClick={() => setActiveTab("chrono")}
-          className={`p-2 rounded-full ${
+          className={`p-2 rounded-full cursor-pointer ${
             activeTab === "chrono" ? "bg-white text-black" : ""
           }`}
         >
@@ -49,8 +49,8 @@ export default function TimeManager() {
         </button>
         <button
           onClick={() => setActiveTab("timer")}
-          className={`p-2 rounded-full ${
-            activeTab === "timer" ? "bg-white text-black" : ""
+          className={`p-2 rounded-full cursor-pointer ${
+            activeTab === "timer" ? "bg-white text-green-300 border border-green-300" : ""
           }`}
         >
           <FaHourglassHalf />

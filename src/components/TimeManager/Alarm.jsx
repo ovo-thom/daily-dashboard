@@ -2,12 +2,11 @@
 import { useState, useEffect, useRef } from "react";
 
 export default function Alarm() {
-  const [alarmTime, setAlarmTime] = useState(""); // Format: "HH:MM"
+  const [alarmTime, setAlarmTime] = useState("");
   const [isAlarmTriggered, setIsAlarmTriggered] = useState(false);
   const [alarmActivated, setAlarmActivated] = useState(false);
   const audioRef = useRef(null);
 
-  // Vérifie si l’heure actuelle correspond à l’heure de l’alarme
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date();
@@ -21,7 +20,6 @@ export default function Alarm() {
     return () => clearInterval(interval);
   }, [alarmTime, alarmActivated]);
 
-  // Joue le son quand l’alarme est déclenchée
   useEffect(() => {
     if (isAlarmTriggered && audioRef.current) {
       audioRef.current.play().catch((err) => {
@@ -30,7 +28,6 @@ export default function Alarm() {
     }
   }, [isAlarmTriggered]);
 
-  // Désactive l’alarme et arrête le son
   const handleStopAlarm = () => {
     if (audioRef.current) {
       audioRef.current.pause();
@@ -41,7 +38,7 @@ export default function Alarm() {
   };
 
   return (
-    <div className="flex justify-center items-center p-4 space-y-4 space-x-4">
+    <div className="flex justify-center items-center space-x-4">
       <input
         type="time"
         value={alarmTime}

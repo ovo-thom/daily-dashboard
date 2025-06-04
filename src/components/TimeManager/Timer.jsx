@@ -1,67 +1,41 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Timer() {
   const [inputMinutes, setInputMinutes] = useState(0);
   const [timeLeft, setTimeLeft] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
-  const intervalRef = useRef(null); // Ref pour stocker l’intervalle
 
-  const handleStart = (e) => {
-    e.preventDefault();
-
-    if (timeLeft === 0) {
-      const totalSeconds = parseInt(inputMinutes) * 60;
-      if (!isNaN(totalSeconds) && totalSeconds > 0) {
-        setTimeLeft(totalSeconds);
-      } else {
-        return;
-      }
-    }
-
-    setIsRunning(true);
-  };
-
-  const handleStop = () => {
-    setIsRunning(false);
-  };
-
-  // Gère le décompte
-  useEffect(() => {
-    if (isRunning && intervalRef.current === null) {
-      intervalRef.current = setInterval(() => {
-        setTimeLeft((prev) => {
-          if (prev <= 1) {
-            clearInterval(intervalRef.current);
-            intervalRef.current = null;
+   useEffect(() => {
+    let timer;
+    if (isRunning && timeLeft > 0) {
+      timer = setInterval(() => {
+        setTimeLeft((prevTime) => {
+          if (prevTime <= 1) {
             setIsRunning(false);
             return 0;
           }
-          return prev - 1;
+          return prevTime - 1;
         });
       }, 1000);
     }
+    return () => clearInterval(timer);
+  }, [isRunning, timeLeft]);
 
-    if (!isRunning && intervalRef.current !== null) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
+  const handleStart = () => {
+    if (inputMinutes > 0) {
+      setTimeLeft(inputMinutes * 60);
+      setIsRunning(true);
     }
+  };
 
-    // Nettoyage
-    return () => {
-      if (intervalRef.current !== null) {
-        clearInterval(intervalRef.current);
-        intervalRef.current = null;
-      }
-    };
-  }, [isRunning]);
 
   const minutes = Math.floor(timeLeft / 60);
   const seconds = timeLeft % 60;
 
   return (
-    <form
-      onSubmit={handleStart}
+    <div
+    
       className="flex justify-center items-center space-x-4"
     >
       <input
@@ -69,14 +43,15 @@ export default function Timer() {
         min={1}
         placeholder="minuteur"
         value={inputMinutes}
-        onChange={(e) => setInputMinutes(e.target.value)}
+        onChange={(e) => setInputMinutes(Number(e.target.value))}
+        disabled={isRunning}
         className="border rounded pl-2 py-1 w-[25%] outline-none text-base"
       />
 
       {isRunning ? (
         <button
           type="button"
-          onClick={handleStop}
+          onClick={() => setIsRunning(false)}
           className="bg-red-400 hover:bg-red-500 py-1 px-2 rounded-lg text-lg"
         >
           Arrêter
@@ -84,6 +59,7 @@ export default function Timer() {
       ) : (
         <button
           type="submit"
+          onClick={handleStart}
           className="bg-green-400 hover:bg-green-500 py-1 px-2 rounded-lg text-lg"
         >
           Démarrer
@@ -94,6 +70,6 @@ export default function Timer() {
         {minutes.toString().padStart(2, "0")}:
         {seconds.toString().padStart(2, "0")}
       </p>
-    </form>
+    </div>
   );
 }

@@ -24,8 +24,8 @@ export default function Clock() {
 
   return (
     <div className="flex justify-between items-baseline">
-      <p>{dayString}</p>
-      <p>
+      <p className="font-light">{dayString}</p>
+      <p className="font-light">
         {hours}:{minutes}
       </p>
     </div>

@@ -21,7 +21,7 @@ export default function FocusOfTheDay() {
   };
   return (
     <div className="col-span-1 md:col-span-3 flex flex-col justify-center items-center font-bold bg-black/15 backdrop-blur-xl text-gray-200 w-full rounded-3xl p-3">
-      <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl text-center">
+      <h1 className="text-base font-bold tracking-widest sm:text-lg md:text-xl lg:text-2xl text-center">
         Focus du jour 🎯
       </h1>
       <form onSubmit={handleSubmit} className="w-full">
@@ -44,8 +44,8 @@ export default function FocusOfTheDay() {
       {submittedFocus && (
         <div className="w-full flex items-baseline justify-center">
           <div className=" text-center text-base sm:text-sm md:text-lg lg:text-xl xl:text-2xl flex items-baseline justify-between">
-            <p className="font-light text-xl text-gray-50">Ton focus du jour :</p>
-            <p className="font-light text-base text-green-200 ml-2">{submittedFocus}</p> 🎯
+            <p className=" text-lg text-gray-200 font-medium">Ton focus du jour :</p>
+            <p className="font-normal text-base text-green-300 ml-2">{submittedFocus}</p> 
           </div>
           <div className=" flex items-center justify-center ml-2">
             <button

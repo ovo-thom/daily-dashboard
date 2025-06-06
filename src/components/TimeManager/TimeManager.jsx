@@ -17,20 +17,12 @@ export default function TimeManager() {
   const [activeTab, setActiveTab] = useState("clock");
 
   return (
-    <div className="col-span-1 md:col-span-2 bg-black/10 backdrop-blur-xl text-gray-200 font-bold p-4 rounded-lg space-y-4">
+    <div className="col-span-1 md:col-span-2 bg-black/10 backdrop-blur-xl text-gray-200 font-bold p-4 rounded-2xl space-y-4">
       <div className="">
         <Clock />
       </div>
 
       <div className="flex justify-evenly items-center text-2xl">
-        {/* <button
-          onClick={() => setActiveTab("clock")}
-          className={`p-2 rounded-full ${
-            activeTab === "clock" ? "bg-white text-black" : ""
-          }`}
-        >
-          <FaClock />
-        </button> */}
         <button
           onClick={() => setActiveTab("alarm")}
           className={`p-2 rounded-full cursor-pointer ${
@@ -50,7 +42,9 @@ export default function TimeManager() {
         <button
           onClick={() => setActiveTab("timer")}
           className={`p-2 rounded-full cursor-pointer ${
-            activeTab === "timer" ? "bg-white text-green-300 border border-green-300" : ""
+            activeTab === "timer"
+              ? "bg-white text-green-300 border border-green-300"
+              : ""
           }`}
         >
           <FaHourglassHalf />

@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import { FaRegTrashCan } from "react-icons/fa6";
+import { FcTodoList } from "react-icons/fc";
 
 export default function TodoList() {
   const [tasks, setTasks] = useState([]);
@@ -51,9 +52,13 @@ export default function TodoList() {
 
   return (
     <div className="col-span-1 md:col-span-3 bg-black/10 backdrop-blur-xl text-gray-200 font-bold p-3 rounded-lg">
-      <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl text-center">
-        Todo List 📓
-      </h2>
+      <div className="flex justify-center items-center mb-4 space-x-2">
+        <h2 className="text-base font-bold tracking-widest sm:text-lg md:text-xl lg:text-2xl text-center">
+          Todo List
+        </h2>
+        <FcTodoList className="text-2xl" />
+      </div>
+
       <form
         onSubmit={handleSubmit}
         className="flex flex-col justify-center items-center my-2"

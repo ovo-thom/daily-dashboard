@@ -66,7 +66,7 @@ export default function Alarm() {
             }
           }}
           className={`py-1 px-2 rounded-lg text-lg text-white ${
-            alarmActivated ? "bg-blue-500" : "bg-green-400 hover:bg-green-500"
+            alarmActivated ? "bg-blue-500" : "bg-green-400 hover:bg-green-300"
           }`}
         >
           {alarmActivated

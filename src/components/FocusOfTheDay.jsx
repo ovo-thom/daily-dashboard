@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { GiMultipleTargets } from "react-icons/gi";
 
 export default function FocusOfTheDay() {
   const [focus, setFocus] = useState("");
@@ -21,9 +22,13 @@ export default function FocusOfTheDay() {
   };
   return (
     <div className="col-span-1 md:col-span-3 flex flex-col justify-center items-center font-bold bg-black/15 backdrop-blur-xl text-gray-200 w-full rounded-3xl p-3">
-      <h1 className="text-base font-bold tracking-widest sm:text-lg md:text-xl lg:text-2xl text-center">
-        Focus du jour 🎯
+      <div className="flex items-center space-x-3">
+<h1 className="text-base font-semibold tracking-widest sm:text-lg md:text-xl lg:text-2xl text-center">
+        Focus du jour 
       </h1>
+      <GiMultipleTargets className="text-3xl text-blue-500" />
+      </div>
+      
       <form onSubmit={handleSubmit} className="w-full">
         <div className="w-full flex justify-center items-baseline my-2 space-x-3 flex-wrap">
           <input

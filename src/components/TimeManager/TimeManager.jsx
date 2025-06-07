@@ -18,10 +18,10 @@ export default function TimeManager() {
 
   return (
     <div className="col-span-1 md:col-span-2 bg-black/10 backdrop-blur-xl text-gray-200 font-bold p-4 rounded-2xl space-y-4">
-      <div className="">
+      <>
         <Clock />
-      </div>
-
+      </>
+       
       <div className="flex justify-evenly items-center text-2xl">
         <button
           onClick={() => setActiveTab("alarm")}

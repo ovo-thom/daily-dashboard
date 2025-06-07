@@ -30,7 +30,7 @@ export default function Chrono() {
       ) : (
         <button
           onClick={() => setIsRunning(true)}
-          className="bg-green-400 hover:bg-green-500 py-1 px-2 rounded-lg text-lg"
+          className="bg-green-400 hover:bg-green-500 py-1 px-2 rounded-lg text-medium"
         >
           Démarrer
         </button>
@@ -38,7 +38,7 @@ export default function Chrono() {
       {!isRunning && time > 0 && (
         <button
           onClick={() => setTime(0)}
-          className="bg-red-400 hover:bg-red-500 py-1 px-2 rounded-lg text-lg"
+          className="bg-red-400 hover:bg-red-500 py-1 px-2 rounded-lg text-medium"
         >
           Effacer
         </button>

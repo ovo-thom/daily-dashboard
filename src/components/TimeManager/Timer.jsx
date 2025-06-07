@@ -11,7 +11,7 @@ export default function Timer() {
 
   const initAudio = () => {
     if (!audioRef.current) {
-      audioRef.current = new Audio("/gto.mp3");
+      audioRef.current = new Audio("/alarm.mp3");
     }
   };
 
@@ -89,7 +89,7 @@ export default function Timer() {
         <button
           type="submit"
           onClick={handleStart}
-          className="bg-green-400 hover:bg-green-500 py-1 px-2 rounded-lg text-lg cursor-pointer"
+          className="bg-green-400 hover:bg-green-500 py-1 px-2 rounded-lg text-medium cursor-pointer"
         >
           Démarrer
         </button>
@@ -115,9 +115,9 @@ export default function Timer() {
             audioRef.current.currentTime = 0;
             setTimerFinished(false);
           }}
-          className="bg-red-600 hover:bg-red-700 text-white py-1 rounded-lg cursor-pointer"
+          className="bg-red-600 hover:bg-red-700 text-white py-1 px-2 font-semibold text-base rounded-lg cursor-pointer"
         >
-          Arrêter le minuteur
+          Arrêter
         </button>
       )}
     </div>

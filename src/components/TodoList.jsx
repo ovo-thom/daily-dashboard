@@ -53,10 +53,10 @@ export default function TodoList() {
   return (
     <div className="col-span-1 md:col-span-3 bg-black/10 backdrop-blur-xl text-gray-200 font-bold p-3 rounded-lg">
       <div className="flex justify-center items-center mb-4 space-x-2">
-        <h2 className="text-base font-bold tracking-widest sm:text-lg md:text-xl lg:text-2xl text-center">
+        <h2 className="text-base font-semibold tracking-widest sm:text-lg md:text-xl lg:text-2xl text-center">
           Todo List
         </h2>
-        <FcTodoList className="text-2xl" />
+        <FcTodoList className="text-3xl" />
       </div>
 
       <form
@@ -80,7 +80,7 @@ export default function TodoList() {
         {tasks.map((task) => (
           <li
             key={task.id}
-            className="flex items-baseline text-sm cursor-pointer border-b border-b-green-300 py-2"
+            className="flex items-baseline text-sm font-semibold cursor-pointer border-b border-b-green-300 py-2"
           >
             {task.name}
             <span className="ml-auto flex items-center space-x-2">

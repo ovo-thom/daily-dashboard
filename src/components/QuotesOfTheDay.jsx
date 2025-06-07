@@ -3,14 +3,16 @@ import getRandomQuote from "@/lib/getRandomQuote";
 export default function QuotesOfTheDay() {
   const quote = getRandomQuote();
   return (
-    <div className="col-span-1 md:col-span-3 md:col-start-2 bg-black/10 backdrop-blur-xl text-black rounded-2xl">
-    <div className="flex flex-col items-center justify-center h-full">
-      <div className="flex  items-baseline">
-        <h3 className="mr-1 text-gray-50 text-lg font-semibold">Citation du jour :</h3>
-        <p className="text-gray-200">{quote.text}</p>
+    <div className="col-span-1 md:col-span-3 md:col-start-2 flex justify-center bg-black/10 backdrop-blur-xl text-black rounded-2xl w-full">
+      <div className="flex flex-col p-4 justify-center items-center w-full">
+        <div className="flex w-full items-center">
+          <h3 className="text-gray-50 text-base font-semibold whitespace-nowrap min-w-[140px] text-center">
+            Citation du jour&nbsp;:
+          </h3>
+          <p className="text-gray-200 pl-3 text-base break-words flex-1">{quote.text}</p>
+        </div>
+        <p className="mt-2 text-green-300 italic">{quote.author}</p>
       </div>
-      <p className="text-green-300 italic ">{quote.author}</p>
-    </div>
     </div>
   );
 }

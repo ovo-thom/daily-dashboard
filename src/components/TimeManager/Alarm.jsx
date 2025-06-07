@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import { GiAlarmClock } from "react-icons/gi";
 
 export default function Alarm() {
   const [alarmTime, setAlarmTime] = useState("");
@@ -53,9 +54,9 @@ export default function Alarm() {
       {isAlarmTriggered ? (
         <button
           onClick={handleStopAlarm}
-          className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg"
+          className="bg-red-600 hover:bg-red-700 text-white py-1 px-2 rounded-lg text-sm"
         >
-          🔕 Désactiver l'alarme
+          🔕 Désactiver 
         </button>
       ) : (
         <button
@@ -65,23 +66,27 @@ export default function Alarm() {
               setIsAlarmTriggered(false);
             }
           }}
-          className={`py-1 px-2 rounded-lg text-lg text-white ${
-            alarmActivated ? "bg-blue-500" : "bg-green-400 hover:bg-green-300"
+          className={`py-1 px-2 rounded-lg text-base font-normal text-white ${
+            alarmActivated ? "border border-green-300" : "bg-green-400 hover:bg-green-300"
           }`}
         >
           {alarmActivated
-            ? `⏰ Alarme activée pour ${alarmTime}`
+            ? `Alarme activée pour ${alarmTime}`
             : "Activer l'alarme"}
+            
         </button>
       )}
 
       {isAlarmTriggered && (
-        <div className="bg-red-100 text-red-600 p-2 rounded">
+        <div className="bg-gray-100 text-red-600 py-1 px-2 rounded-lg text-sm">
           🔔 Alarme ! Il est {alarmTime}
         </div>
       )}
 
-      <audio ref={audioRef} src="/alarm.mp3" preload="auto" />
+      <audio ref={audioRef} src="/gto.mp3" preload="auto" />
     </div>
   );
 }
+
+
+// ⏰

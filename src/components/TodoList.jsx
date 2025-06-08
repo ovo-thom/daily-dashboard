@@ -89,7 +89,7 @@ export default function TodoList() {
               </span>
               <FaRegTrashCan
                 onClick={() => handleDelete(task.id)}
-                className="text-black cursor-pointer text-base"
+                className="text-stone-800 cursor-pointer text-base"
               />
             </span>
           </li>

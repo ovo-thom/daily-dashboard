@@ -29,7 +29,7 @@ export default function TimeManager() {
             activeTab === "alarm" ? "bg-white text-black" : ""
           }`}
         >
-          <FaBell />
+          <FaBell className="text-gray-200"/>
         </button>
         <button
           onClick={() => setActiveTab("chrono")}
@@ -37,17 +37,17 @@ export default function TimeManager() {
             activeTab === "chrono" ? "bg-white text-black" : ""
           }`}
         >
-          <FaStopwatch />
+          <FaStopwatch className="text-blue-300"/>
         </button>
         <button
           onClick={() => setActiveTab("timer")}
           className={`p-2 rounded-full cursor-pointer ${
             activeTab === "timer"
-              ? "bg-white text-green-300 border border-green-300"
+              ? "bg-white text-black"
               : ""
           }`}
         >
-          <FaHourglassHalf />
+          <FaHourglassHalf className="text-green-300"/>
         </button>
       </div>
       <div>{tabComponents[activeTab]}</div>

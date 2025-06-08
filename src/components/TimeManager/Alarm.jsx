@@ -56,7 +56,7 @@ export default function Alarm() {
           onClick={handleStopAlarm}
           className="bg-red-600 hover:bg-red-700 text-white py-1 px-2 rounded-lg text-sm"
         >
-          🔕 Désactiver 
+           Désactiver 
         </button>
       ) : (
         <button
@@ -79,7 +79,7 @@ export default function Alarm() {
 
       {isAlarmTriggered && (
         <div className="bg-gray-100 text-red-600 py-1 px-2 rounded-lg text-sm">
-          🔔 Alarme ! Il est {alarmTime}
+           Alarme ! Il est {alarmTime}
         </div>
       )}
 

@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { GiMultipleTargets } from "react-icons/gi";
+import DrawOutlineButton from "./DrawOutlineButton";
+
 
 export default function FocusOfTheDay() {
   const [focus, setFocus] = useState("");
@@ -38,17 +40,18 @@ export default function FocusOfTheDay() {
             placeholder="Quel est ton objectif aujourd'hui ?"
             className="border rounded-lg h-10 p-2 placeholder-gray-200 font-light text-sm focus:outline-none focus:ring-2 focus:border-none focus:ring-white w-full max-w-xl"
           />
-          <button
+          <DrawOutlineButton type="submit">Go !</DrawOutlineButton>
+          {/* <button
             type="submit"
-            className="p-2 border rounded-lg cursor-pointer mt-5 md:mt-0"
+            className="py-1 px-3 border rounded-lg cursor-pointer mt-5 md:mt-0"
           >
             Go !
-          </button>
+          </button> */}
         </div>
       </form>
       {submittedFocus && (
         <div className="w-full flex items-baseline justify-center">
-          <div className=" text-center text-base sm:text-sm md:text-lg lg:text-xl xl:text-2xl flex items-baseline justify-between">
+          <div className=" text-center text-base sm:text-sm md:text-lg lg:text-xl xl:text-2xl flex items-baseline justify-center">
             <p className=" text-lg text-gray-200 font-medium">Ton focus du jour :</p>
             <p className="font-normal text-base text-green-300 ml-2">{submittedFocus}</p> 
           </div>
@@ -58,7 +61,7 @@ export default function FocusOfTheDay() {
                 setSubmittedFocus("");
                 localStorage.removeItem("focusOfTheDay");
               }}
-              className="h-7 w-7 hover:border-red-500 hover:text-red-400 duration-300 rounded-lg border text-gray-200 cursor-pointer"
+              className="h-6 w-6 hover:border-red-500 text-sm hover:text-red-400 duration-300 rounded-lg border text-gray-200 cursor-pointer"
             >
               X
             </button>

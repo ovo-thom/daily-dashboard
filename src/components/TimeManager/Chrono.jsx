@@ -30,7 +30,7 @@ export default function Chrono() {
       ) : (
         <button
           onClick={() => setIsRunning(true)}
-          className="bg-green-400 hover:bg-green-500 py-1 px-2 rounded-lg text-medium"
+          className="text-white cursor-pointer border border-green-300 hover:bg-green-300 py-1 px-2 font-light rounded-lg text-medium"
         >
           Démarrer
         </button>

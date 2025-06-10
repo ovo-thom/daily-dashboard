@@ -89,7 +89,7 @@ export default function Timer() {
         <button
           type="submit"
           onClick={handleStart}
-          className="bg-green-400 hover:bg-green-500 py-1 px-2 rounded-lg text-medium cursor-pointer"
+          className="text-white border border-green-300 hover:bg-green-300 py-1 px-2 rounded-lg font-light text-medium cursor-pointer"
         >
           Démarrer
         </button>

@@ -48,13 +48,13 @@ export default function Alarm() {
           setIsAlarmTriggered(false);
           setAlarmActivated(false);
         }}
-        className="border px-2 py-1 rounded"
+        className="border px-2 py-1 rounded outline-none cursor-pointer"
       />
 
       {isAlarmTriggered ? (
         <button
           onClick={handleStopAlarm}
-          className="bg-red-600 hover:bg-red-700 text-white py-1 px-2 rounded-lg text-sm"
+          className="bg-red-400 cursor-pointer hover:bg-red-500 text-white py-1 px-2 rounded-lg text-sm"
         >
            Désactiver 
         </button>
@@ -67,7 +67,7 @@ export default function Alarm() {
             }
           }}
           className={`py-1 px-2 rounded-lg text-base font-normal text-white ${
-            alarmActivated ? "border border-green-300" : "bg-green-400 hover:bg-green-300"
+            alarmActivated ? "border border-green-300" : "border border-green-300 hover:bg-green-300 cursor-pointer"
           }`}
         >
           {alarmActivated
@@ -78,7 +78,7 @@ export default function Alarm() {
       )}
 
       {isAlarmTriggered && (
-        <div className="bg-gray-100 text-red-600 py-1 px-2 rounded-lg text-sm">
+        <div className="border text-red-400 py-1 px-2 rounded-lg text-sm">
            Alarme ! Il est {alarmTime}
         </div>
       )}
@@ -87,6 +87,3 @@ export default function Alarm() {
     </div>
   );
 }
-
-
-// ⏰

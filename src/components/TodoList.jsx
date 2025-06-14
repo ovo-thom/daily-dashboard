@@ -71,7 +71,7 @@ export default function TodoList() {
             placeholder="Ajouter une tâche"
             className="border rounded-lg h-10 p-2 placeholder-gray-200 font-light text-sm focus:outline-none focus:ring-2 focus:ring-white w-full max-w-xl"
           />
-          <button className="border rounded-lg px-2 ml-4 cursor-pointer">
+          <button type="submit" className="border rounded-lg px-2 ml-4 cursor-pointer hover:border hover:border-green-300">
             Ajouter
           </button>
         </div>

@@ -23,7 +23,7 @@ export default function Weather() {
         const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
 
         fetch(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`
+          `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&lang=fr&appid=${apiKey}`
         )
           .then((res) => res.json())
           .then((data) => {
@@ -71,18 +71,18 @@ export default function Weather() {
 
   return (
     <div className="col-span-1 md:col-span-2 bg-black/10 backdrop-blur-xl rounded-3xl text-gray-200 flex flex-col justify-center items-center">
-    <div className="flex flex-col justify-center items-center">
-      <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold">
-        {weather.name}
-      </h2>
-      <div className="flex items-center justify-center space-x-4">
-        {getWeatherIcon(iconCode)}
-        <div className="text-xl">{temperature}°C</div>
+      <div className="flex flex-col justify-center items-center">
+        <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold">
+          {weather.name}
+        </h2>
+        <div className="flex items-center justify-center space-x-4">
+          {getWeatherIcon(iconCode)}
+          <div className="text-xl">{temperature}°C</div>
+        </div>
+        <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl">
+          {description}
+        </p>
       </div>
-      <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl">
-        {description}
-      </p>
-    </div>
     </div>
   );
 }

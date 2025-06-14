@@ -38,15 +38,9 @@ export default function FocusOfTheDay() {
             value={focus}
             onChange={(e) => setFocus(e.target.value)}
             placeholder="Quel est ton objectif aujourd'hui ?"
-            className="border border-white text-white rounded-lg h-10 p-2 placeholder-gray-200 font-light text-sm focus:outline-none focus:ring-2 focus:border-none focus:ring-white w-full max-w-xl"
+            className="border border-white text-gray-200 rounded-lg h-10 p-2 placeholder-gray-200 font-light text-sm focus:outline-none focus:ring-2 focus:border-none focus:ring-white w-full max-w-xl"
           />
           <DrawOutlineButton type="submit">Go !</DrawOutlineButton>
-          {/* <button
-            type="submit"
-            className="py-1 px-3 border rounded-lg cursor-pointer mt-5 md:mt-0"
-          >
-            Go !
-          </button> */}
         </div>
       </form>
       {submittedFocus && (

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Button from "../Button";
 
 export default function Chrono() {
   const [time, setTime] = useState(0);
@@ -21,27 +22,18 @@ export default function Chrono() {
   return (
     <div className="flex justify-center space-x-4 items-center">
       {isRunning ? (
-        <button
-          onClick={() => setIsRunning(false)}
-          className="bg-red-400 hover:bg-red-500 py-1 px-2 rounded-lg text-lg"
-        >
+        <Button variant="stop" onClick={() => setIsRunning(false)}>
           Arrêter
-        </button>
+        </Button>
       ) : (
-        <button
-          onClick={() => setIsRunning(true)}
-          className="text-white cursor-pointer border border-green-300 hover:bg-green-300 py-1 px-2 font-light rounded-lg text-medium"
-        >
+        <Button variant="default" onClick={() => setIsRunning(true)}>
           Démarrer
-        </button>
+        </Button>
       )}
       {!isRunning && time > 0 && (
-        <button
-          onClick={() => setTime(0)}
-          className="bg-red-400 hover:bg-red-500 py-1 px-2 rounded-lg text-medium"
-        >
+        <Button variant="delete" onClick={() => setTime(0)}>
           Effacer
-        </button>
+        </Button>
       )}
       <div>
         {minutes.toString().padStart(2, "0")}:

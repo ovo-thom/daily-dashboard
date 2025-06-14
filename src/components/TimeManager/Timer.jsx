@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
+import Button from "../Button";
 
 export default function Timer() {
   const [inputMinutes, setInputMinutes] = useState(0);
@@ -32,9 +33,9 @@ export default function Timer() {
     return () => clearInterval(timer);
   }, [isRunning, timeLeft]);
 
-  // Ce useEffect joue le son quand le timer atteint 0 et s'arrête
+  // Joue le son quand le timer atteint 0 et s'arrête
   useEffect(() => {
-    if (timerFinished && audioRef.current)  {
+    if (timerFinished && audioRef.current) {
       audioRef.current.currentTime = 0; // Remet au début si besoin
       audioRef.current.play().catch((err) => {
         console.warn("Lecture audio bloquée :", err);
@@ -55,7 +56,7 @@ export default function Timer() {
 
   const handleClear = () => {
     setTimeLeft(0);
-    setTimerFinished(false); 
+    setTimerFinished(false);
     if (audioRef.current) {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
@@ -78,29 +79,18 @@ export default function Timer() {
       />
 
       {isRunning ? (
-        <button
-          type="button"
-          onClick={() => setIsRunning(false)}
-          className="bg-red-400 hover:bg-red-500 py-1 px-2 rounded-lg text-lg"
-        >
+        <Button variant="stop" onClick={() => setIsRunning(false)}>
           Arrêter
-        </button>
+        </Button>
       ) : (
-        <button
-          type="submit"
-          onClick={handleStart}
-          className="text-white border border-green-300 hover:bg-green-300 py-1 px-2 rounded-lg font-light text-medium cursor-pointer"
-        >
+        <Button variant="default" onClick={handleStart}>
           Démarrer
-        </button>
+        </Button>
       )}
       {!isRunning && timeLeft > 0 && (
-        <button
-          onClick={handleClear}
-          className="bg-red-400 hover:bg-red-500 py-1 px-2 rounded-lg text-lg cursor-pointer"
-        >
+        <Button variant="stop" onClick={handleClear}>
           Effacer
-        </button>
+        </Button>
       )}
 
       <p className="text-xl font-mono">
@@ -109,16 +99,16 @@ export default function Timer() {
       </p>
 
       {timerFinished && audioRef.current && (
-        <button
+        <Button
+          variant="delete" 
           onClick={() => {
             audioRef.current.pause();
             audioRef.current.currentTime = 0;
             setTimerFinished(false);
           }}
-          className="bg-red-600 hover:bg-red-700 text-white py-1 px-2 font-semibold text-base rounded-lg cursor-pointer"
         >
           Arrêter
-        </button>
+        </Button>
       )}
     </div>
   );

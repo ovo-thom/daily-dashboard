@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { GiAlarmClock } from "react-icons/gi";
+import Button from "../Button";
 
 export default function Alarm() {
   const [alarmTime, setAlarmTime] = useState("");
@@ -52,34 +52,33 @@ export default function Alarm() {
       />
 
       {isAlarmTriggered ? (
-        <button
-          onClick={handleStopAlarm}
-          className="bg-red-400 cursor-pointer hover:bg-red-500 text-white py-1 px-2 rounded-lg text-sm"
-        >
-           Désactiver 
-        </button>
+        <Button variant="stop" onClick={handleStopAlarm}>
+          Désactiver
+        </Button>
       ) : (
-        <button
+        <Button
+          variant="default"
           onClick={() => {
             if (alarmTime) {
               setAlarmActivated(true);
               setIsAlarmTriggered(false);
             }
           }}
-          className={`py-1 px-2 rounded-lg text-base font-normal text-white ${
-            alarmActivated ? "border border-green-300" : "border border-green-300 hover:bg-green-300 cursor-pointer"
-          }`}
+          className={
+            alarmActivated
+              ? "border border-green-300"
+              : "border border-green-300 hover:bg-green-300 cursor-pointer"
+          }
         >
           {alarmActivated
             ? `Alarme activée pour ${alarmTime}`
             : "Activer l'alarme"}
-            
-        </button>
+        </Button>
       )}
 
       {isAlarmTriggered && (
         <div className="border text-red-400 py-1 px-2 rounded-lg text-sm">
-           Alarme ! Il est {alarmTime}
+          Alarme ! Il est {alarmTime}
         </div>
       )}
 

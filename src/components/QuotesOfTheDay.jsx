@@ -9,7 +9,7 @@ export default function QuotesOfTheDay() {
           <h3 className="text-gray-50 text-lg font-semibold whitespace-nowrap min-w-[140px] text-center">
             Citation du jour&nbsp;:
           </h3>
-          <p className="text-gray-200 pl-3 text-base break-words flex-1 text-center">{quote.text}</p>
+          <p className="text-blue-600 pl-3 text-base break-words flex-1 text-center">{quote.text}</p>
         </div>
         <p className="mt-2 text-green-300 italic">{quote.author}</p>
       </div>
